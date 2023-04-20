@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>RECONOCE</title>
+    <link rel="stylesheet" href="./reconoce_front.css" />
+  </head>
+
+  <body>
+    <h1>RECONOCE</h1>
+    <form method="post" action="http://localhost:5000/" enctype="multipart/form-data">
+      <fieldset>
+        <label id="examen-label" for="examen">
+          Examen: <input id="examen" name="examen" type="file" accept=".jpg" required />
+        </label>
+        <label id="puntuacionAcertada-label" for="puntuacionAcertada">
+          Puntuación por acierto: <input id="puntuacionAcertada" name="puntuacionAcertada" type="text" required />
+        </label>
+        <label id="puntuacionFallo-label" for="puntuacionFallo">
+          Puntuación por fallo: <input id="puntuacionFallo" name="puntuacionFallo" type="text" required />
+        </label>
+        <label id="numPreguntas-label"  for="numPreguntas">
+          Número de preguntas: <input id="numPreguntas" name="numPreguntas" type="text" required />
+        </label> 
+      </fieldset>
+        <input type="submit" value="Corregir" />
+    </form>
+  </body>
+</html>
