@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  front_end:
+    build: .
+    ports:
+      - "80:8000"
+  back_end:
+    image: "reconoce"
+    ports:
+      - ""
