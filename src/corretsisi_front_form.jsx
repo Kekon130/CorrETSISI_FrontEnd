@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { Examen } from './Components/Examen';
 
-export function Form () {
+export function App () {
+
+  const aux = null
+
   return (
     <>
       <form encType="multipart/form-data" onSubmit={ printForm }>
@@ -23,6 +27,9 @@ export function Form () {
         </fieldset>
           <input type="submit" value="Corregir" />
       </form>
+      <main>
+        <Examen examen={ aux } />
+      </main>
     </>
   )
 }
@@ -30,7 +37,9 @@ export function Form () {
 function printForm(event) {
   event.preventDefault();
   const form = event.target;
-  const formData = new FormData(form)
-  const formDataJSON = Object.fromEntries(formData.entries())
-  console.log(formDataJSON)
+  const formData = Object.fromEntries(new FormData(form));
+  console.log(formData);
+  /*const formDataJSON = Object.fromEntries(formData.entries())
+  const response = axios.post('http://localhost:5000/', formDataJSON)
+  console.log(response)*/
 }
