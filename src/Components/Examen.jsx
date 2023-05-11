@@ -2,9 +2,9 @@ function ShowExamen({ examen }) {
   console.log(examen)
   return(
     <div className="examen">
-      <p>Número de respuestas acertadas: { examen.NumAciertos }</p>
-      <p>Número de respuestas erroneas: { examen.NumFallos }</p>
-      <p>Nota: { examen.Nota }</p>
+      <p className="NumRespuestas">Número de respuestas acertadas: { examen.NumAciertos }</p>
+      <p className="NumRespuestas">Número de respuestas erroneas: { examen.NumFallos }</p>
+      <p className="Nota">Nota: { examen.Nota }</p>
     </div>
   )
 }

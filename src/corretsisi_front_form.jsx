@@ -1,9 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Examen } from './Components/Examen';
+
+function useSearch() {
+  const [search, updateSearch] = useState('')
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    
+  })
+}
 
 export function App () {
 
-  const aux = null
+  const aux = {
+    "Nota": -7.5,
+    "NumAciertos": 19,
+    "NumFallos": 53
+  }
 
   return (
     <>
