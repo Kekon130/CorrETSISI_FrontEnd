@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from 'react-dom/client'
 import { App } from "./corretsisi_front_form.jsx";
-import './corretsisi_front_form.css'
+import './main.css'
 
 ReactDom.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

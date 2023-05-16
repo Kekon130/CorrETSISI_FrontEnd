@@ -2,6 +2,7 @@ const API_route = 'http://localhost:5000/'
 
 export async function CorrectExam({ exam }) {
   try {
+    console.log({exam})
     const respuesta = await fetch(API_route, { body: exam })
     const resultado = await respuesta.json()
 

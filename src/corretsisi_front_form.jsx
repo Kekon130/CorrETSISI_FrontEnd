@@ -1,26 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Examen } from './Components/Examen';
-
-function useSearch() {
-  const [search, updateSearch] = useState('')
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    
-  })
-}
+import { useExams } from './Hooks/useExam';
+import './corretsisi_front_form.css'
 
 export function App () {
+  const [form, setForm] = useState(new FormData())
+  const [examen, getExamen, loading] = useExams(form)
 
-  const aux = {
-    "Nota": -7.5,
-    "NumAciertos": 19,
-    "NumFallos": 53
-  }
+  function processForm(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = Object.fromEntries(new FormData(form));
+    setForm(formData)
+    getExamen({ form })
+  }  
 
   return (
     <>
-      <form encType="multipart/form-data" onSubmit={ printForm }>
+      <form encType="multipart/form-data" onSubmit={ processForm }>
         <fieldset>
           <label id="examen-label" htmlFor="examen">
             Examen: <input id="examen" name="examen" type="file"  accept=".jpg" required/>
@@ -41,18 +38,10 @@ export function App () {
           <input type="submit" value="Corregir" />
       </form>
       <main>
-        <Examen examen={ aux } />
+        {
+          loading ? <p>Corrigiendo...</p> : <Examen examen={ examen } />
+        }
       </main>
     </>
   )
-}
-
-function printForm(event) {
-  event.preventDefault();
-  const form = event.target;
-  const formData = Object.fromEntries(new FormData(form));
-  console.log(formData);
-  /*const formDataJSON = Object.fromEntries(formData.entries())
-  const response = axios.post('http://localhost:5000/', formDataJSON)
-  console.log(response)*/
 }
